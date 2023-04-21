@@ -1,7 +1,6 @@
 /* CS 141 Program 5: The Scrambler
 Completed by Hayley Nguyen
 */
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -388,13 +387,16 @@ class Scrambler {
 
 int main() {
     srand(time(NULL));
-    Scrambler s("dictionary.txt", 8);
+    Scrambler s("dictionary.txt", 9);
     cout << s.str() << endl << endl;
     string cmd;
-    // cout << s.display_solution() << endl;
     while (!s.is_over()) {
         cout << "Enter a move: ";
         cin >> cmd;
+        if (cmd == "S") {
+            cout << s.display_solution() << endl;
+            return;
+        }
         s.try_move(cmd);
         cout << s.str() << endl << endl;
     }
