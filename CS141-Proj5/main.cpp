@@ -81,8 +81,6 @@ class Scrambler {
             for (int row = 0; row < size; row++) {
                 int remaining_space = size;
                 int total_space = size;
-                int word_idx = rand() % words.size();
-                string word = words[word_idx];
                 while (total_space > 2) {
                     // Pick a random word from the list of words
                     int word_idx = rand() % words.size();
@@ -104,7 +102,6 @@ class Scrambler {
                                 boardWords.push_back(word);
                                 total_space -= word.size();
                                 remaining_space -= word.size() - 1;
-                                break;
                             }
                         } else {
                             if (size > 5 && (remaining_space - word.size() > 3 || remaining_space - word.size() < 3)) {
